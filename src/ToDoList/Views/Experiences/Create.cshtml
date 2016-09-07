@@ -1,0 +1,21 @@
+﻿@model ToDoList.Models.Experience
+
+@{
+    ViewData["Title"] = "Experience - Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Create a new Experience</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Description)
+    @Html.EditorFor(model => model.Description)
+
+    @Html.LabelFor(model => model.PlaceId)
+    @Html.DropDownList("PlaceId")
+
+    <input type="submit" value="Create" class="btn btn-default" />
+}
+
+@Html.ActionLink("Back to List", "Index")

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ToDoList.Models.Person>
+
+@{
+    ViewData["Title"] = "Person";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>To Do List</h2>
+<hr />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var listPerson in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelPerson => listPerson.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = listPerson.PersonId }) |
+                @Html.ActionLink("Details", "Details", new { id = listPerson.PersonId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = listPerson.PersonId })
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>

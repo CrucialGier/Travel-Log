@@ -1,0 +1,23 @@
+﻿@model ToDoList.Models.Place
+
+@{
+    ViewData["Title"] = "Place - Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Place Details</h2>
+<hr />
+
+<p>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</p>
+
+<p>@ViewBag.ExperiencesCount</p>
+<ul>
+    @foreach (var listExperience in Model.Experiences)
+    {
+        <li>
+            @Html.DisplayFor(modelExperience => listExperience.Description)
+        </li>
+    }
+</ul>
+
+
+<p>@Html.ActionLink("Edit", "Edit", new { id = Model.PlaceId }) | @Html.ActionLink("Back to List", "Index")</p>
